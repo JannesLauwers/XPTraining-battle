@@ -8,15 +8,20 @@ public class Soldier {
 
     private String name;
 
-    private String weapon;
+    private Weapon weapon;
 
     public Soldier(String name) {
         Validate.isTrue(isNotBlank(name));
 
         this.name = name;
+        this.weapon = new BareFist();
     }
 
     String getName() {
         return this.name;
+    }
+
+    public Weapon getWeapon() {
+        return this.weapon;
     }
 }
