@@ -7,6 +7,10 @@ public abstract class Weapon {
         return 0;
     }
 
+    public int getDamage(Weapon weapon) {
+        return 0;
+    }
+
     public boolean doesAttackingWeaponWin(Weapon weaponDefense) {
 
         boolean winner;
@@ -23,8 +27,18 @@ public abstract class Weapon {
     }
 
     private boolean checkIfWeaponAttackWins(Weapon weaponAttack, Weapon weaponDefense) {
-        return weaponAttack.getDamage() > weaponDefense.getDamage()
-                || weaponAttack.getDamage() == weaponDefense.getDamage();
+        int attackDamage = weaponAttack.getDamage();
+        int defenseDamage = weaponDefense.getDamage();
+
+        if (weaponAttack.getClass() == Potion.class) {
+            attackDamage = weaponAttack.getDamage(weaponDefense);
+        }
+
+        if (weaponDefense.getClass() == Potion.class) {
+            defenseDamage = weaponDefense.getDamage(weaponAttack);
+        }
+
+        return attackDamage > defenseDamage || attackDamage == defenseDamage;
     }
 
 }

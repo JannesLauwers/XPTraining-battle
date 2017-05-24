@@ -128,4 +128,59 @@ public class WeaponTest {
         assertEquals(2 + new Axe().getDamage(), broadaxe.getDamage());
     }
 
+    @Test
+    public void getDamagePotionWhenOpponentDamageIsEven() {
+        Weapon potion = new Potion();
+
+        assertEquals(10, potion.getDamage(new Sword()));
+    }
+
+    @Test
+    public void GetDamagePotionWhenOpponentDamageIsOdd() {
+        Weapon potion = new Potion();
+
+        assertEquals(0, potion.getDamage(new Axe()));
+    }
+
+    @Test
+    public void GetDamagePotionWhenOpponentIsPotion() {
+        Weapon potion = new Potion();
+        Weapon potionDefender = new Potion();
+
+        assertEquals(10, potion.getDamage(potionDefender));
+        assertEquals(10, potionDefender.getDamage(potion));
+    }
+
+    @Test
+    public void GetWinnerWhenPotionDefendsAgainstEven() {
+        Weapon potion = new Potion();
+        Weapon trident = new Trident();
+
+        assertEquals(false, trident.doesAttackingWeaponWin(potion));
+    }
+
+    @Test
+    public void GetWinnerWhenPotionDefendsAgainstOdd() {
+        Weapon potion = new Potion();
+        Weapon bareFist = new BareFist();
+
+        assertEquals(true, bareFist.doesAttackingWeaponWin(potion));
+    }
+
+    @Test
+    public void GetWinnerWhenPotionAttacksAgainstOdd() {
+        Weapon potion = new Potion();
+        Weapon bareFist = new BareFist();
+
+        assertEquals(false, potion.doesAttackingWeaponWin(bareFist));
+    }
+
+    @Test
+    public void GetWinnerWhenPotionAttacksAgainstEven() {
+        Weapon potion = new Potion();
+        Weapon trident = new Trident();
+
+        assertEquals(true, potion.doesAttackingWeaponWin(trident));
+    }
+
 }
