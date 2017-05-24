@@ -36,5 +36,33 @@ public class SoldierTest {
         assertEquals(BareFist.class, soldier.getWeapon().getClass());
     }
 
+    @Test
+    public void soldierGetsSword() {
+        Soldier soldier = new Soldier("Fumblewumble", new Sword());
+
+        assertEquals(Sword.class, soldier.getWeapon().getClass());
+    }
+
+    @Test
+    public void soldierGetsSpear() {
+        Soldier soldier = new Soldier("Fumblewumble", new Spear());
+
+        assertEquals(Spear.class, soldier.getWeapon().getClass());
+    }
+
+    @Test
+    public void soldierGetsAxe() {
+        Soldier soldier = new Soldier("Fumblewumble", new Axe());
+
+        assertEquals(Axe.class, soldier.getWeapon().getClass());
+    }
+
+    @Test
+    public void soldierGetsBareFist() {
+        Soldier soldier = new Soldier("Fumblewumble", new BareFist());
+
+        assertEquals(BareFist.class, soldier.getWeapon().getClass());
+    }
+
 
 }
