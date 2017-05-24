@@ -24,4 +24,9 @@ public class Soldier {
     public Weapon getWeapon() {
         return this.weapon;
     }
+
+
+    public void attacks(Soldier soldier2) {
+
+    }
 }

@@ -37,4 +37,14 @@ public class SoldierTest {
     }
 
 
+    @Test
+    public void soldier_fights_soldier() {
+        Soldier soldier1 = new Soldier("lala");
+        Soldier soldier2 = new Soldier("Fumblewumble2");
+        soldier1.attacks(soldier2);
+
+
+    }
+
+
 }
