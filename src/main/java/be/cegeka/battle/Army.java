@@ -51,7 +51,12 @@ public class Army {
             this.getFrontMan().attacks(defendingArmy.getFrontMan());
         }
         Army winningArmy = getWinningArmy(defendingArmy);
+        winningArmy.ReportVictory();
         return winningArmy;
+    }
+
+    private void ReportVictory() {
+        this.hq.ReportVictory(getAantalSoldiers());
     }
 
     private Army getWinningArmy(Army defendingArmy) {

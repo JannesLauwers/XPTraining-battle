@@ -3,6 +3,7 @@ package be.cegeka.battle;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -86,5 +87,35 @@ public class ArmyTest {
 
         Army winningArmy = attackingArmy.attacks(defendingArmy);
         assertEquals(attackingArmy, winningArmy);
+    }
+
+    @Test
+    public void report_remaining_number_to_hq() {
+        Soldier soldaat1 = new Soldier("jantje");
+        Soldier soldaat2 = new Soldier("dirk");
+        Soldier soldaat3 = new Soldier("jantje");
+
+        Army attackingArmy = new Army(hq);
+        Army defendingArmy = new Army(hq);
+
+        attackingArmy.addsoldier(soldaat1);
+        defendingArmy.addsoldier(soldaat2);
+        attackingArmy.addsoldier(soldaat3);
+
+        attackingArmy.attacks(defendingArmy);
+        verify(hq).ReportVictory(attackingArmy.getAantalSoldiers());
+    }
+
+    @Test
+    public void report_remaining_number_to_hq_defending_army_wins() {
+        Soldier soldaat1 = new Soldier("jantje");
+
+        Army attackingArmy = new Army(hq);
+        Army defendingArmy = new Army(hq);
+
+        defendingArmy.addsoldier(soldaat1);
+
+        attackingArmy.attacks(defendingArmy);
+        verify(hq).ReportVictory(defendingArmy.getAantalSoldiers());
     }
 }
