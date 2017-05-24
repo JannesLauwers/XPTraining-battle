@@ -1,8 +1,9 @@
 package be.cegeka.battle;
 
-import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 public class SoldierTest {
 
@@ -27,5 +28,13 @@ public class SoldierTest {
     public void construction_ASoldierMustHaveAName_CannotBeBlank() {
         new Soldier("   ");
     }
+
+    @Test
+    public void defaultWeaponOfSoldierIsBareFist() {
+        Soldier soldier = new Soldier("Fumblewumble");
+
+        assertEquals(BareFist.class, soldier.getWeapon().getClass());
+    }
+
 
 }
