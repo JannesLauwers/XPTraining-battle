@@ -39,6 +39,11 @@ public class Army {
 
     public void ReportCasualty(Soldier soldier) {
         this.hq.ReportCasualty(soldier.getId());
+        soldaten.remove(soldier);
+    }
+
+    public int getAantalSoldiers() {
+        return soldaten.size();
     }
 
 }
