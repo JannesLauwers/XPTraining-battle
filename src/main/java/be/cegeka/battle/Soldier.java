@@ -35,9 +35,18 @@ public class Soldier {
     }
 
 
-    public void attacks(Soldier soldier2) {
-        this.weapon.doesAttackingWeaponWin(soldier2.getWeapon());
+    public Soldier attacks(Soldier defender) {
+        boolean attackerWins = this.weapon.doesAttackingWeaponWin(defender.getWeapon());
 
+        Soldier victor;
+
+        if (attackerWins) {
+            victor = this;
+        } else {
+            victor = defender;
+        }
+
+        return victor;
     }
 
     public Object getId() {

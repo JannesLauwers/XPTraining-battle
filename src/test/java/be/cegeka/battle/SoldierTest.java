@@ -86,7 +86,7 @@ public class SoldierTest {
         Soldier soldierBareFist = new Soldier("Fumble's square");
         Soldier soldierAxe = new Soldier("Mr.T", new Axe());
 
-        assertEquals(soldierBareFist, soldierBareFist.attacks(soldierAxe));
+        assertEquals(soldierAxe, soldierBareFist.attacks(soldierAxe));
     }
 
 
