@@ -52,13 +52,10 @@ public class Soldier {
     }
 
     private Soldier getWinner(Soldier defender, boolean attackerWins) {
-        Soldier victor;
         if (attackerWins) {
-            victor = this;
-        } else {
-            victor = defender;
+            return this;
         }
-        return victor;
+        return defender;
     }
 
     public int getId() {
