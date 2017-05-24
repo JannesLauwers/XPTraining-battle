@@ -6,13 +6,22 @@ public class Army {
 
     private ArrayList<Soldier> soldaten;
 
+    private HQ hq;
 
     public Army() {
         soldaten = new ArrayList<Soldier>();
     }
 
+    public Army(HQ hq) {
+        soldaten = new ArrayList<Soldier>();
+        this.hq = hq;
+    }
+
     public void addsoldier(Soldier soldaat) {
         soldaten.add(soldaat);
+        if (hq != null) {
+            hq.ReportEnlistment(soldaat.getName());
+        }
     }
 
     public ArrayList<Soldier> getSoldiers() {
