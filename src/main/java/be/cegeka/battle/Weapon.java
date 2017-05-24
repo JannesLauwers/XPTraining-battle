@@ -7,19 +7,24 @@ public abstract class Weapon {
         return 0;
     }
 
-    public Weapon compareDamageTwoWeapons(Weapon weapon1, Weapon weapon2) {
+    public Weapon compareDamageTwoWeapons(Weapon weaponAttack, Weapon weaponDefense) {
 
         Weapon winner;
 
-        if (weapon1.getDamage() > weapon2.getDamage()) {
-            winner = weapon1;
+        if (checkIfWeaponAttackWins(weaponAttack, weaponDefense)) {
+            winner = weaponAttack;
         } else {
-            winner = weapon2;
+            winner = weaponDefense;
         }
 
 
         return winner;
 
+    }
+
+    private boolean checkIfWeaponAttackWins(Weapon weaponAttack, Weapon weaponDefense) {
+        return weaponAttack.getDamage() > weaponDefense.getDamage()
+                || weaponAttack.getDamage() == weaponDefense.getDamage();
     }
 
 }

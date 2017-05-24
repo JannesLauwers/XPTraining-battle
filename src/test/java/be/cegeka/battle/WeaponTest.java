@@ -100,4 +100,28 @@ public class WeaponTest {
         assertEquals(axe, winner);
     }
 
+    @Test
+    public void CompareSpearAttackWithSwordDefense() {
+        Weapon spear = new Spear();
+        Weapon sword = new Sword();
+
+        Weapon winner;
+
+        winner = spear.compareDamageTwoWeapons(spear, sword);
+
+        assertEquals(spear, winner);
+    }
+
+    @Test
+    public void CompareSwordAttackWithSwordDefense() {
+        Weapon swordAttack = new Sword();
+        Weapon swordDefense = new Sword();
+
+        Weapon winner;
+
+        winner = swordAttack.compareDamageTwoWeapons(swordAttack, swordDefense);
+
+        assertEquals(swordAttack, winner);
+    }
+
 }
