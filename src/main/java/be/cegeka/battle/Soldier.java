@@ -44,8 +44,10 @@ public class Soldier {
 
         if (attackerWins) {
             victor = this;
+            defender.dies();
         } else {
             victor = defender;
+            this.dies();
         }
 
         return victor;
@@ -69,6 +71,8 @@ public class Soldier {
     }
 
     public void dies() {
-        this.army.ReportCasualty(this);
+        if (this.army != null) {
+            this.army.ReportCasualty(this);
+        }
     }
 }

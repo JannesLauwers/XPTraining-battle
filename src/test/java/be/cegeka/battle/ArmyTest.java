@@ -52,4 +52,20 @@ public class ArmyTest {
         soldaat.dies();
         assertNotEquals(aantalSoldiers, army.getAantalSoldiers());
     }
+
+    @Test
+    public void army_tegen_army_frontman_dies() {
+        Soldier soldaat1 = new Soldier("jantje");
+        Soldier soldaat2 = new Soldier("dirk");
+        Army attackingArmy = new Army(hq);
+        Army defendingArmy = new Army(hq);
+
+        attackingArmy.addsoldier(soldaat1);
+        defendingArmy.addsoldier(soldaat2);
+        int aantalSoldiers = defendingArmy.getAantalSoldiers();
+
+        attackingArmy.attacks(defendingArmy);
+
+        assertNotEquals(aantalSoldiers, defendingArmy.getAantalSoldiers());
+    }
 }

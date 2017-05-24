@@ -46,4 +46,8 @@ public class Army {
         return soldaten.size();
     }
 
+    public void attacks(Army defendingArmy) {
+        this.getFrontMan().attacks(defendingArmy.getFrontMan());
+    }
+
 }
