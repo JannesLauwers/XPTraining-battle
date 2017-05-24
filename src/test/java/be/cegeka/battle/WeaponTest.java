@@ -107,4 +107,25 @@ public class WeaponTest {
         assertEquals(true, swordAttack.doesAttackingWeaponWin(swordDefense));
     }
 
+    @Test
+    public void getDamageTwoHandedSword() {
+        Weapon twohandedSword = new TwoHandedSword();
+
+        assertEquals(5, twohandedSword.getDamage());
+    }
+
+    @Test
+    public void getDamageTrident() {
+        Weapon trident = new Trident();
+
+        assertEquals(3 * new Spear().getDamage(), trident.getDamage());
+    }
+
+    @Test
+    public void getDamageBroadaxe() {
+        Weapon broadaxe = new BroadAxe();
+
+        assertEquals(2 + new Axe().getDamage(), broadaxe.getDamage());
+    }
+
 }
