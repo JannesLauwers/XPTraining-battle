@@ -62,4 +62,42 @@ public class WeaponTest {
         assertEquals(1, bareFist.getDamage());
     }
 
+    @Test
+    public void CompareSpearWithAxe() {
+        Weapon spear = new Spear();
+        Weapon axe = new Axe();
+
+
+        Weapon winner;
+
+        winner = spear.compareDamageTwoWeapons(axe, spear);
+
+        assertEquals(axe, winner);
+
+    }
+
+    @Test
+    public void CompareSwordWithAxe() {
+        Weapon axe = new Axe();
+        Weapon sword = new Sword();
+
+        Weapon winner;
+
+        winner = sword.compareDamageTwoWeapons(sword, axe);
+
+        assertEquals(axe, winner);
+    }
+
+    @Test
+    public void CompareAxeWithBareFists() {
+        Weapon axe = new Axe();
+        Weapon bareFist = new BareFist();
+
+        Weapon winner;
+
+        winner = axe.compareDamageTwoWeapons(axe, bareFist);
+
+        assertEquals(axe, winner);
+    }
+
 }

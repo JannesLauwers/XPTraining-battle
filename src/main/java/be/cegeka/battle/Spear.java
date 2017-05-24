@@ -1,7 +1,7 @@
 package be.cegeka.battle;
 
 
-public class Spear implements Weapon {
+public class Spear extends Weapon {
 
     @Override
     public int getDamage() {
