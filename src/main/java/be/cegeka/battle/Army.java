@@ -20,7 +20,8 @@ public class Army {
     public void addsoldier(Soldier soldaat) {
         soldaten.add(soldaat);
         if (hq != null) {
-            hq.ReportEnlistment(soldaat.getName());
+            soldaat.setId(hq.ReportEnlistment(soldaat.getName()));
+
         }
     }
 

@@ -10,6 +10,8 @@ public class Soldier {
 
     private Weapon weapon;
 
+    private int id;
+
     public Soldier(String name) {
         Validate.isTrue(isNotBlank(name));
 
@@ -35,5 +37,14 @@ public class Soldier {
 
     public void attacks(Soldier soldier2) {
 
+    }
+
+    public Object getId() {
+        return this.id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
