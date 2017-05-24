@@ -3,7 +3,6 @@ package be.cegeka.battle;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -102,9 +101,8 @@ public class SoldierTest {
     public void soldier_dies_sends_message_to_hq() {
         Soldier soldier = new Soldier("Fumblewumble");
         Army army = new Army(hq);
-        when(hq.ReportEnlistment(soldier.getName())).thenReturn(5);
         army.addsoldier(soldier);
         soldier.dies();
-        verify(hq).ReportCasualty(5);
+        verify(hq).ReportCasualty(soldier.getId());
     }
 }

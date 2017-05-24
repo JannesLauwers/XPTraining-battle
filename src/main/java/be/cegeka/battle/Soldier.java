@@ -39,17 +39,25 @@ public class Soldier {
 
     public Soldier attacks(Soldier defender) {
         boolean attackerWins = this.weapon.doesAttackingWeaponWin(defender.getWeapon());
+        loserDies(defender, attackerWins);
+        return getWinner(defender, attackerWins);
+    }
 
-        Soldier victor;
-
+    private void loserDies(Soldier defender, boolean attackerWins) {
         if (attackerWins) {
-            victor = this;
             defender.dies();
         } else {
-            victor = defender;
             this.dies();
         }
+    }
 
+    private Soldier getWinner(Soldier defender, boolean attackerWins) {
+        Soldier victor;
+        if (attackerWins) {
+            victor = this;
+        } else {
+            victor = defender;
+        }
         return victor;
     }
 
