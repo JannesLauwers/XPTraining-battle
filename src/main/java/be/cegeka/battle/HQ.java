@@ -3,9 +3,12 @@ package be.cegeka.battle;
 
 public class HQ implements IHeadquarters {
 
+    private int uitTeDelenId = 1;
+
     @Override
     public int ReportEnlistment(String soldierName) {
-        throw new UnsupportedOperationException("implement me (after test)");
+        uitTeDelenId++;
+        return uitTeDelenId;
     }
 
     @Override
