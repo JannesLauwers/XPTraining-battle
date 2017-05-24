@@ -68,4 +68,23 @@ public class ArmyTest {
 
         assertNotEquals(aantalSoldiers, defendingArmy.getAantalSoldiers());
     }
+
+    @Test
+    public void last_man_standing_wins() {
+        Soldier soldaat1 = new Soldier("jantje");
+        Soldier soldaat2 = new Soldier("dirk");
+        Soldier soldaat3 = new Soldier("jantje");
+        Soldier soldaat4 = new Soldier("dirk");
+
+        Army attackingArmy = new Army(hq);
+        Army defendingArmy = new Army(hq);
+
+        attackingArmy.addsoldier(soldaat1);
+        defendingArmy.addsoldier(soldaat2);
+        attackingArmy.addsoldier(soldaat3);
+        defendingArmy.addsoldier(soldaat4);
+
+        Army winningArmy = attackingArmy.attacks(defendingArmy);
+        assertEquals(attackingArmy, winningArmy);
+    }
 }

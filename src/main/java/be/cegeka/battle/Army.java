@@ -46,8 +46,23 @@ public class Army {
         return soldaten.size();
     }
 
-    public void attacks(Army defendingArmy) {
-        this.getFrontMan().attacks(defendingArmy.getFrontMan());
+    public Army attacks(Army defendingArmy) {
+        while (gevechtNogMogelijk(defendingArmy)) {
+            this.getFrontMan().attacks(defendingArmy.getFrontMan());
+        }
+        Army winningArmy = getWinningArmy(defendingArmy);
+        return winningArmy;
+    }
+
+    private Army getWinningArmy(Army defendingArmy) {
+        if (this.getAantalSoldiers() > 0) {
+            return this;
+        }
+        return defendingArmy;
+    }
+
+    private boolean gevechtNogMogelijk(Army defendingArmy) {
+        return this.getAantalSoldiers() > 0 && defendingArmy.getAantalSoldiers() > 0;
     }
 
 }
