@@ -29,6 +29,25 @@ public abstract class Weapon {
     private boolean checkIfWeaponAttackWins(Weapon weaponAttack, Weapon weaponDefense) {
         int attackDamage = weaponAttack.getDamage();
         int defenseDamage = weaponDefense.getDamage();
+        int bonus = 0;
+
+        if (weaponAttack.getClass() == Axe.class
+                || weaponAttack.getClass() == BroadAxe.class && weaponDefense.getClass() == Spear.class
+                || weaponDefense.getClass() == Trident.class) {
+            bonus = 3;
+        }
+
+        if (weaponAttack.getClass() == Spear.class
+                || weaponAttack.getClass() == Trident.class && weaponDefense.getClass() == Sword.class
+                || weaponDefense.getClass() == TwoHandedSword.class) {
+            bonus = 3;
+        }
+
+        if (weaponAttack.getClass() == Sword.class
+                || weaponAttack.getClass() == TwoHandedSword.class && weaponDefense.getClass() == Axe.class
+                || weaponDefense.getClass() == BroadAxe.class) {
+            bonus = 3;
+        }
 
         if (weaponAttack.getClass() == Potion.class) {
             attackDamage = weaponAttack.getDamage(weaponDefense);
@@ -38,7 +57,7 @@ public abstract class Weapon {
             defenseDamage = weaponDefense.getDamage(weaponAttack);
         }
 
-        return attackDamage > defenseDamage || attackDamage == defenseDamage;
+        return attackDamage + bonus > defenseDamage || attackDamage + bonus == defenseDamage;
     }
 
 }
