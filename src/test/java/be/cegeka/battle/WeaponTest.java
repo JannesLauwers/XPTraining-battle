@@ -34,4 +34,32 @@ public class WeaponTest {
         assertEquals(BareFist.class, weaponBareFist.getClass());
     }
 
+    @Test
+    public void AxeHasThreeDamage() {
+        Weapon axe = new Axe();
+
+        assertEquals(3, axe.getDamage());
+    }
+
+    @Test
+    public void SwordHasTwoDamage() {
+        Weapon sword = new Sword();
+
+        assertEquals(2, sword.getDamage());
+    }
+
+    @Test
+    public void SpearHasTwoDamage() {
+        Weapon spear = new Spear();
+
+        assertEquals(2, spear.getDamage());
+    }
+
+    @Test
+    public void BareFisteHasOneDamage() {
+        Weapon bareFist = new BareFist();
+
+        assertEquals(1, bareFist.getDamage());
+    }
+
 }

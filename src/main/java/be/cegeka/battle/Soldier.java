@@ -17,6 +17,13 @@ public class Soldier {
         this.weapon = new BareFist();
     }
 
+    public Soldier(String name, Weapon weapon) {
+        Validate.isTrue(isNotBlank(name));
+
+        this.name = name;
+        this.weapon = weapon;
+    }
+
     String getName() {
         return this.name;
     }
