@@ -34,6 +34,7 @@ public class Soldier {
 
 
     public void attacks(Soldier soldier2) {
+        this.weapon.doesAttackingWeaponWin(soldier2.getWeapon());
 
     }
 }

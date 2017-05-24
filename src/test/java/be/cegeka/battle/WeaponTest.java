@@ -67,12 +67,9 @@ public class WeaponTest {
         Weapon spear = new Spear();
         Weapon axe = new Axe();
 
+        spear.doesAttackingWeaponWin(axe);
 
-        Weapon winner;
-
-        winner = spear.compareDamageTwoWeapons(axe, spear);
-
-        assertEquals(axe, winner);
+        assertEquals(false, spear.doesAttackingWeaponWin(axe));
 
     }
 
@@ -81,11 +78,7 @@ public class WeaponTest {
         Weapon axe = new Axe();
         Weapon sword = new Sword();
 
-        Weapon winner;
-
-        winner = sword.compareDamageTwoWeapons(sword, axe);
-
-        assertEquals(axe, winner);
+        assertEquals(false, sword.doesAttackingWeaponWin(axe));
     }
 
     @Test
@@ -93,11 +86,8 @@ public class WeaponTest {
         Weapon axe = new Axe();
         Weapon bareFist = new BareFist();
 
-        Weapon winner;
 
-        winner = axe.compareDamageTwoWeapons(axe, bareFist);
-
-        assertEquals(axe, winner);
+        assertEquals(true, axe.doesAttackingWeaponWin(bareFist));
     }
 
     @Test
@@ -105,11 +95,8 @@ public class WeaponTest {
         Weapon spear = new Spear();
         Weapon sword = new Sword();
 
-        Weapon winner;
 
-        winner = spear.compareDamageTwoWeapons(spear, sword);
-
-        assertEquals(spear, winner);
+        assertEquals(true, spear.doesAttackingWeaponWin(sword));
     }
 
     @Test
@@ -117,11 +104,7 @@ public class WeaponTest {
         Weapon swordAttack = new Sword();
         Weapon swordDefense = new Sword();
 
-        Weapon winner;
-
-        winner = swordAttack.compareDamageTwoWeapons(swordAttack, swordDefense);
-
-        assertEquals(swordAttack, winner);
+        assertEquals(true, swordAttack.doesAttackingWeaponWin(swordDefense));
     }
 
 }

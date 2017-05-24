@@ -7,14 +7,14 @@ public abstract class Weapon {
         return 0;
     }
 
-    public Weapon compareDamageTwoWeapons(Weapon weaponAttack, Weapon weaponDefense) {
+    public boolean doesAttackingWeaponWin(Weapon weaponDefense) {
 
-        Weapon winner;
+        boolean winner;
 
-        if (checkIfWeaponAttackWins(weaponAttack, weaponDefense)) {
-            winner = weaponAttack;
+        if (checkIfWeaponAttackWins(this, weaponDefense)) {
+            winner = true;
         } else {
-            winner = weaponDefense;
+            winner = false;
         }
 
 

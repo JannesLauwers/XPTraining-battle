@@ -66,12 +66,27 @@ public class SoldierTest {
 
 
     @Test
-    public void soldier_fights_soldier() {
+    public void soldierBareFistsAttacksSoldierBareFist() {
         Soldier soldier1 = new Soldier("lala");
         Soldier soldier2 = new Soldier("Fumblewumble2");
-        soldier1.attacks(soldier2);
 
+        assertEquals(soldier1, soldier1.attacks(soldier2));
+    }
 
+    @Test
+    public void SoldierAxeAttacksSoldierBareFist() {
+        Soldier soldierAxe = new Soldier("Fumble's square", new Axe());
+        Soldier soldierBareFist = new Soldier("Mr.T");
+
+        assertEquals(soldierAxe, soldierAxe.attacks(soldierBareFist));
+    }
+
+    @Test
+    public void SoldierBareFistAttacksSoldierAxe() {
+        Soldier soldierBareFist = new Soldier("Fumble's square");
+        Soldier soldierAxe = new Soldier("Mr.T", new Axe());
+
+        assertEquals(soldierBareFist, soldierBareFist.attacks(soldierAxe));
     }
 
 
