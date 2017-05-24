@@ -19,6 +19,7 @@ public class Army {
 
     public void addsoldier(Soldier soldaat) {
         soldaten.add(soldaat);
+        soldaat.setArmy(this);
         if (hq != null) {
             soldaat.setId(hq.ReportEnlistment(soldaat.getName()));
 
@@ -34,6 +35,10 @@ public class Army {
             return (Soldier) soldaten.toArray()[0];
         }
         return null;
+    }
+
+    public void ReportCasualty(Soldier soldier) {
+        this.hq.ReportCasualty(soldier.getId());
     }
 
 }

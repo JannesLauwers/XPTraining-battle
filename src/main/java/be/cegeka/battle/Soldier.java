@@ -12,6 +12,8 @@ public class Soldier {
 
     private int id;
 
+    private Army army;
+
     public Soldier(String name) {
         Validate.isTrue(isNotBlank(name));
 
@@ -39,12 +41,24 @@ public class Soldier {
 
     }
 
-    public Object getId() {
+    public int getId() {
         return this.id;
     }
 
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Army getArmy() {
+        return army;
+    }
+
+    public void setArmy(Army army) {
+        this.army = army;
+    }
+
+    public void dies() {
+        this.army.ReportCasualty(this);
     }
 }
